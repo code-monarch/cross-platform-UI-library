@@ -1,0 +1,7 @@
+{
+  "name": "origin-swift-ui-example-react",
+  "version": "0.1.0",
+  "private": true,
+  "main": "ReactExample.tsx",
+  "license": "MIT"
+}

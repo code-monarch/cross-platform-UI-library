@@ -1,0 +1,7 @@
+{
+  "name": "origin-swift-ui-example-astro",
+  "version": "0.1.0",
+  "private": true,
+  "main": "AstroExample.astro",
+  "license": "MIT"
+}

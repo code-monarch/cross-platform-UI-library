@@ -1,0 +1,7 @@
+{
+  "name": "origin-swift-ui-example-vue",
+  "version": "0.1.0",
+  "private": true,
+  "main": "VueExample.vue",
+  "license": "MIT"
+}
