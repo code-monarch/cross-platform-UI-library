@@ -1,0 +1,104 @@
+
+---
+import { Button, Input, Select, Form } from '../../packages/origin-swift-ui/astro';
+import Layout from './Layout.astro';
+
+// Client-side script will handle form submission
+const handleSubmit = (data) => {
+  console.log('Form submitted:', data);
+  document.getElementById('successMessage').classList.remove('hidden');
+  setTimeout(() => {
+    document.getElementById('successMessage').classList.add('hidden');
+  }, 3000);
+};
+---
+
+<Layout title="OriginSwift UI - Astro Example">
+  <div class="p-6 max-w-2xl mx-auto">
+    <h1 class="text-2xl font-bold mb-6">OriginSwift UI - Astro Example</h1>
+
+    <div class="space-y-8">
+      <div class="p-4 border rounded-lg">
+        <h2 class="text-xl font-medium mb-4">Input Components</h2>
+        
+        <div class="space-y-4">
+          <!-- Text input with client:load for immediate hydration -->
+          <Input 
+            client:load
+            type="text"
+            label="Text Input"
+            placeholder="Type something..."
+            name="textExample"
+          />
+          
+          <!-- Checkbox input with client:visible for hydration when visible -->
+          <Input 
+            client:visible
+            type="checkbox"
+            label="Accept terms and conditions"
+            name="checkboxExample"
+          />
+        </div>
+      </div>
+
+      <div class="p-4 border rounded-lg">
+        <h2 class="text-xl font-medium mb-4">Select Component</h2>
+        
+        <!-- Select with client:idle for hydration during browser idle time -->
+        <Select
+          client:idle
+          label="Select an option"
+          options={[
+            { value: 'option1', label: 'Option 1' },
+            { value: 'option2', label: 'Option 2' },
+            { value: 'option3', label: 'Option 3' },
+          ]}
+          placeholder="Choose an option"
+          name="selectExample"
+        />
+      </div>
+
+      <div class="p-4 border rounded-lg">
+        <h2 class="text-xl font-medium mb-4">Button Variants</h2>
+        
+        <div class="flex flex-wrap gap-2">
+          <!-- Buttons with client:load for immediate hydration -->
+          <Button client:load variant="primary">Primary</Button>
+          <Button client:load variant="secondary">Secondary</Button>
+          <Button client:load variant="outline">Outline</Button>
+          <Button client:load variant="ghost">Ghost</Button>
+          <Button client:load variant="destructive">Destructive</Button>
+        </div>
+        
+        <div class="mt-4 flex items-center gap-2">
+          <Button client:load variant="primary" size="sm">Small</Button>
+          <Button client:load variant="primary" size="md">Medium</Button>
+          <Button client:load variant="primary" size="lg">Large</Button>
+        </div>
+        
+        <div class="mt-4">
+          <Button client:load variant="primary" loading>Loading</Button>
+        </div>
+      </div>
+
+      <div class="p-4 border rounded-lg">
+        <h2 class="text-xl font-medium mb-4">Form Component</h2>
+        
+        <div id="successMessage" class="bg-green-100 text-green-700 p-4 rounded-md hidden">
+          <p>Form submitted successfully!</p>
+        </div>
+        
+        <!-- Form with client:load for immediate hydration -->
+        <Form client:load />
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  // Client-side JavaScript for interactive elements
+  document.addEventListener('DOMContentLoaded', () => {
+    // Initialization code if needed
+    console.log('Astro page loaded with OriginSwift UI components');
+  });
+</script>

@@ -1,0 +1,40 @@
+
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <link rel="stylesheet" href="/src/index.css" />
+  </head>
+  <body class="bg-gray-50 min-h-screen">
+    <header class="bg-white shadow-sm">
+      <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+        <h1 class="text-lg font-semibold text-gray-900">OriginSwift UI</h1>
+        <nav>
+          <ul class="flex space-x-4">
+            <li><a href="/examples/react" class="text-blue-600 hover:text-blue-800">React</a></li>
+            <li><a href="/examples/vue" class="text-blue-600 hover:text-blue-800">Vue</a></li>
+            <li><a href="/examples/astro" class="text-blue-600 hover:text-blue-800">Astro</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    
+    <main>
+      <slot />
+    </main>
+    
+    <footer class="text-center p-4 text-gray-500 text-sm">
+      <p>OriginSwift UI - Cross-framework component library</p>
+    </footer>
+  </body>
+</html>
